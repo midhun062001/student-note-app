@@ -1,85 +1,87 @@
-# 📝 Student Notes App
+# 📝 Student Notes Microservices App
 
-An intuitive note-taking web application built for students. Easily create, edit, and manage notes with a clean interface. Built with React and Spring Boot in a microservices architecture.
-
----
-
-## 🚀 Features
-
-- 📚 Create, edit, and delete notes
-- 🔒 User authentication with JWT
-- 🎨 Clean and responsive UI
-- 🌐 RESTful API communication
-- 🧾 Tag, filter, and organize notes
+A modern note-taking web application built with a microservices architecture. Designed for students to organize notes, media, and mind maps efficiently. Backend developed using **Spring Boot**, secured with **JWT**, and powered by **PostgreSQL**.
 
 ---
 
-## 🔧 Setup Instructions
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/midhun062001/student-notes-app.git
-cd student-notes-app
-```
-
-## 2. Start Backend (Spring Boot)
-
-```bash
-cd backend
-./mvnw spring-boot:run
-```
-
-**Make sure PostgreSQL is running and configured in application.properties.**
-
-## 3. Start Frontend (React + Vite)
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-- Frontend runs on http://localhost:3000
-- Backend runs on http://localhost:8080
-
 ## 🧰 Tech Stack
 
-## 🧰 Tech Stack
+| Layer           | Technology           |
+| --------------- | -------------------- |
+| Backend         | Java, Spring Boot    |
+| Microservices   | Spring Cloud Gateway |
+| Database        | PostgreSQL           |
+| Authentication  | JWT, Spring Security |
+| Version Control | Git, GitHub          |
+| Build Tool      | Maven                |
 
-| Layer               | Technology                   |
-| ------------------- | ---------------------------- |
-| **Frontend**        | React, Vite, Axios           |
-| **Backend**         | Spring Boot, Spring Security |
-| **Database**        | PostgreSQL                   |
-| **Authentication**  | JWT                          |
-| **Deployment**      | Docker, Docker Compose       |
-| **Version Control** | Git, GitHub                  |
+---
 
-## 📁 Folder Structure (Initial Phase)
+## 📂 Project Structure
 
-```bash
-student-notes-app/
+```
+student-notes-backend/
+├── user-service/              # Handles user registration, login, and profile
+│   ├── controller/
+│   ├── model/
+│   ├── repository/
+│   ├── service/
+│   └── UserServiceApplication.java
 │
-├── backend/ # Spring Boot application
-│ ├── controller/
-│ ├── service/
-│ ├── repository/
-│ ├── model/
-│ └── NotesAppApplication.java
+├── note-service/              # Manages notes CRUD
 │
-├── frontend/ # React + Vite app
-│ ├── components/
-│ ├── pages/
-│ ├── services/
-│ ├── App.jsx
-│ └── main.jsx
-│
-├── docs/ # Documentation files
-├── docker-compose.yml
-├── README.md
-└── .gitignore
-🖼 Screenshots
 ```
 
-**Screenshots will be added as the project progresses.**
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Java 17+
+- Maven
+- PostgreSQL
+- Git
+
+### 🛠 Setup Instructions
+
+1.  **Clone the repo**
+
+    ```
+    git clone https://github.com/your-username/student-note-backend.git
+    cd student-notes-backend
+    ```
+
+2.  **Create Databases**
+
+    - Create PostgreSQL databases for each service (e.g., user_db, note_db, etc.)
+
+3.  **Update application.yml files**
+
+    - Configure database URLs and credentials for each service
+
+4.  **Build & Run Services**
+
+    ```
+    cd user-service
+    mvn spring-boot:run
+    ```
+
+    Repeat for other services: `note-service`,`media-service`, etc.
+
+5.  **Run Gateway**
+
+    ```bash
+    cd gateway-service
+    mvn spring-boot:run
+    ```
+
+---
+
+# 🔐 Authentication
+
+- Spring Security is used to secure endpoints
+
+- JWT token is required for accessing protected routes
+
+- You can add authentication at a later stage and update your gateway route filters
