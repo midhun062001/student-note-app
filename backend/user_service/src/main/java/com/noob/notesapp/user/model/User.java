@@ -7,16 +7,14 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @Entity
+@Table(name = "app_user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String firstName;
-    @Column(nullable = false)
     private String lastName;
-    @Column(unique = true, nullable = false)
     private String userName;
-    @Column(unique = true,nullable = false)
     private String email;
     private String password;
 }
