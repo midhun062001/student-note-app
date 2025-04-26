@@ -19,17 +19,70 @@ A modern note-taking web application built with a microservices architecture. De
 
 ## 📂 Project Structure
 
-```
+```css
+
 student-notes-backend/
-├── user-service/              # Handles user registration, login, and profile
-│   ├── controller/
-│   ├── model/
-│   ├── repository/
-│   ├── service/
-│   └── UserServiceApplication.java
+├── user-service/ # Handles user registration, login, and profile
+│ ├── controller/
+│ ├── model/
+│ ├── repository/
+│ ├── service/
+│ ├── exception/
+│ ├── config/
+│ └── UserServiceApplication.java
 │
-├── note-service/              # Manages notes CRUD
+├── note-service/ # Manages notes CRUD
+│ ├── controller/
+│ ├── model/
+│ ├── repository/
+│ ├── service/
+│ ├── exception/
+│ ├── config/
+│ └── NoteServiceApplication.java
 │
+├── media-service/ # Handles file uploads and media-related tasks
+│ ├── controller/
+│ ├── model/
+│ ├── repository/
+│ ├── service/
+│ └── MediaServiceApplication.java
+│
+├── mindmap-service/ # Stores and retrieves mind maps
+│ ├── controller/
+│ ├── model/
+│ ├── repository/
+│ ├── service/
+│ └── MindMapServiceApplication.java
+│
+├── gateway-service/ # API Gateway for routing & security
+│ ├── config/
+│ └── GatewayServiceApplication.java
+│
+└── README.md # Backend Documentation
+
+student-notes-frontend/ # React + Vite Frontend
+├── public/ # Static assets
+│ └── index.html
+│
+├── src/
+│ ├── assets/ # Images, icons
+│ ├── components/ # Reusable UI components (Button, Input, Modal)
+│ ├── features/
+│ │ ├── auth/ # Login, Register, Profile screens
+│ │ ├── notes/ # Note CRUD screens and logic
+│ │ ├── media/ # File upload interfaces
+│ │ └── mindmap/ # Mind map design and viewing
+│ ├── services/ # Axios API calls to backend
+│ ├── hooks/ # Custom hooks
+│ ├── context/ # Global state management (Auth, Notes context)
+│ ├── router/ # React Router DOM routes
+│ ├── App.jsx # Main App component
+│ └── main.jsx # Vite entry point
+│
+├── .env # Environment variables (API endpoints)
+├── vite.config.js # Vite configuration
+├── package.json # Project metadata and dependencies
+└── README.md # Frontend Documentation
 ```
 
 ---
