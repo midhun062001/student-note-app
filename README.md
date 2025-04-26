@@ -1,10 +1,10 @@
-# 📝 Student Notes Microservices App
+# Student Notes Microservices App
 
 A modern note-taking web application built with a microservices architecture. Designed for students to organize notes, media, and mind maps efficiently. Backend developed using **Spring Boot**, secured with **JWT**, and powered by **PostgreSQL**.
 
 ---
 
-## 🧰 Tech Stack
+## Tech Stack
 
 | Layer           | Technology           |
 | --------------- | -------------------- |
@@ -17,7 +17,7 @@ A modern note-taking web application built with a microservices architecture. De
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```css
 
@@ -87,7 +87,7 @@ student-notes-frontend/ # React + Vite Frontend
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -96,7 +96,7 @@ student-notes-frontend/ # React + Vite Frontend
 - PostgreSQL
 - Git
 
-### 🛠 Setup Instructions
+### Setup Instructions
 
 1.  **Clone the repo**
 
@@ -131,10 +131,3 @@ student-notes-frontend/ # React + Vite Frontend
 
 ---
 
-# 🔐 Authentication
-
-- Spring Security is used to secure endpoints
-
-- JWT token is required for accessing protected routes
-
-- You can add authentication at a later stage and update your gateway route filters
