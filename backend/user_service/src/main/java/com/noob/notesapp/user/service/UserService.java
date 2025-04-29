@@ -60,4 +60,15 @@ public class UserService {
             return ResponseEntity.ok(response);
         }
     }
+
+    public ResponseEntity<ResponseStructure<User>> getUserByUserNameAndPassword(String userName, String password) {
+        Optional<User> optionalUser = userDao.getUserByUserNameAndPassword(userName,password);
+        if(optionalUser.isPresent()) {
+            ResponseStructure<User> response = new ResponseStructure<>(HttpStatus.OK,"User found",optionalUser.get());
+            return ResponseEntity.ok(response);
+        }
+        else {
+            throw new UserNotFoundException("User not found with the specified user !");
+        }
+    }
 }

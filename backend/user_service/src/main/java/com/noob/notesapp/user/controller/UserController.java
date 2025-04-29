@@ -28,4 +28,9 @@ public class UserController {
     public ResponseEntity<ResponseStructure<List<User>>> getAllUser() {
         return userService.getAllUser();
     }
+
+    @GetMapping("/")
+    public ResponseEntity<ResponseStructure<User>> getUserByUserNameAndPassword(@PathVariable String userName, @PathVariable String password) {
+        return userService.getUserByUserNameAndPassword(userName,password);
+    }
 }

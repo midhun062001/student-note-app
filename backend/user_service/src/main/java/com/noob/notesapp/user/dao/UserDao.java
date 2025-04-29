@@ -34,4 +34,7 @@ public class UserDao {
         return userRepository.findByPhone(phone);
     }
 
+    public Optional<User> getUserByUserNameAndPassword(String userName, String password) {
+        return userRepository.findByUserNameAndPassword(userName,password);
+    }
 }
