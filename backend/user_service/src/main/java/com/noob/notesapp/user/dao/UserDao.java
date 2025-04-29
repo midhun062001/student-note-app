@@ -5,6 +5,7 @@ import com.noob.notesapp.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
@@ -16,7 +17,14 @@ public class UserDao {
        userRepository.save(user);
     }
 
+    public List<User> getAllUser() {
+        return userRepository.findAll();
+    }
+    public Optional<User> getUserById(int id) {
+        return userRepository.findById(id);
+    }
     public Optional<User> getUserByUserName(String userName) {
+
         return userRepository.findByUserName(userName);
     }
     public Optional<User> getUserByEmail(String email) {
@@ -25,4 +33,5 @@ public class UserDao {
     public Optional<User> getUserByPhone(String phone) {
         return userRepository.findByPhone(phone);
     }
+
 }
