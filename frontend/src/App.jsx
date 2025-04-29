@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css'
-import { ComponentTest } from './pages/ComponentTest';
+import { ComponentTest } from './pages/TestinPage';
+import { SignInPage } from './pages/Signin';
+import TestingPage from './pages/TestingPage';
 
 function App() {
 
@@ -8,7 +10,8 @@ function App() {
       <>
         <BrowserRouter>
           <Routes>
-            <Route path='/test' element={ <ComponentTest /> } />
+            <Route path='/test' element={<TestingPage />} />
+            <Route path='/signin' element={<SignInPage />} />
           </Routes>
         </BrowserRouter>
       </>
