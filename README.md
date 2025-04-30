@@ -7,11 +7,11 @@ A modern note-taking web application built with a microservices architecture. De
 ## Tech Stack
 
 | Layer           | Technology           |
-| --------------- | -------------------- |
+| --------------- |----------------------|
 | Backend         | Java, Spring Boot    |
 | Microservices   | Spring Cloud Gateway |
 | Database        | PostgreSQL           |
-| Authentication  | JWT, Spring Security |
+| Authentication  | Spring Security      |
 | Version Control | Git, GitHub          |
 | Build Tool      | Maven                |
 
@@ -32,7 +32,7 @@ student-notes-backend/
 │ └── UserServiceApplication.java
 │
 ├── note-service/ # Manages notes CRUD
-│ ├── controller/
+│ ├── controller/                          
 │ ├── model/
 │ ├── repository/
 │ ├── service/
@@ -100,9 +100,9 @@ student-notes-frontend/ # React + Vite Frontend
 
 1.  **Clone the repo**
 
-    ```
-    git clone https://github.com/your-username/student-note-backend.git
-    cd student-notes-backend
+    ```bash
+    git clone https://github.com/midhun062001/student-note-app.git
+    cd student-note-app
     ```
 
 2.  **Create Databases**
@@ -115,7 +115,7 @@ student-notes-frontend/ # React + Vite Frontend
 
 4.  **Build & Run Services**
 
-    ```
+    ```bash
     cd user-service
     mvn spring-boot:run
     ```
@@ -128,6 +128,5 @@ student-notes-frontend/ # React + Vite Frontend
     cd gateway-service
     mvn spring-boot:run
     ```
-
 ---
 
