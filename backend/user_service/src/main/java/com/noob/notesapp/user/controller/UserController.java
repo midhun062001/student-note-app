@@ -29,7 +29,7 @@ public class UserController {
         return userService.getAllUser();
     }
 
-    @GetMapping("/")
+    @GetMapping("/{userName}/{password}")
     public ResponseEntity<ResponseStructure<User>> getUserByUserNameAndPassword(@PathVariable String userName, @PathVariable String password) {
         return userService.getUserByUserNameAndPassword(userName,password);
     }

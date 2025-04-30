@@ -68,7 +68,7 @@ public class UserService {
             return ResponseEntity.ok(response);
         }
         else {
-            throw new UserNotFoundException("User not found with the specified user !");
+            throw new UserNotFoundException("Wrong credentials!");
         }
     }
 }
