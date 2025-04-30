@@ -39,4 +39,9 @@ public class UserController {
     public ResponseEntity<ResponseStructure<User>> updateUserPassword(@RequestBody User user) {
         return userService.updateUserPassword(user);
     }
+
+    @DeleteMapping("/{userName}")
+    public ResponseEntity<ResponseStructure<User>> deleteUser(@PathVariable String userName) {
+        return userService.deleteUser(userName);
+    }
 }

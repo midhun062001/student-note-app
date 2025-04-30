@@ -86,4 +86,16 @@ public class UserService {
         ResponseStructure<User> response = new ResponseStructure<>(HttpStatus.OK, "password updated", optionalUser.get());
         return ResponseEntity.ok(response);
     }
+
+    public ResponseEntity<ResponseStructure<User>> deleteUser(String userName) {
+        Optional<User> optionalUser = userDao.getUserByUserName(userName);
+        if (optionalUser.isPresent()) {
+            userDao.deleteUser(optionalUser.get());
+            ResponseStructure<User> response = new ResponseStructure<>(HttpStatus.OK, "user deleted", optionalUser.get());
+            return ResponseEntity.ok(response);
+        }
+        else {
+            throw new UserNotFoundException("no user found with  user name" + userName);
+        }
+    }
 }
