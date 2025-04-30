@@ -14,6 +14,7 @@ import java.util.List;
 public class UserController {
     @Autowired
     UserService userService;
+
     @PostMapping("/")
     public ResponseEntity<ResponseStructure<User>> addUser(@RequestBody User user) {
         return userService.addUser(user);
@@ -31,6 +32,11 @@ public class UserController {
 
     @GetMapping("/{userName}/{password}")
     public ResponseEntity<ResponseStructure<User>> getUserByUserNameAndPassword(@PathVariable String userName, @PathVariable String password) {
-        return userService.getUserByUserNameAndPassword(userName,password);
+        return userService.getUserByUserNameAndPassword(userName, password);
+    }
+
+    @PutMapping("/")
+    public ResponseEntity<ResponseStructure<User>> updateUserPassword(@RequestBody User user) {
+        return userService.updateUserPassword(user);
     }
 }

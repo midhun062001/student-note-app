@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -52,6 +53,7 @@ public class UserService {
 
     public ResponseEntity<ResponseStructure<List<User>>> getAllUser() {
         List<User> users = userDao.getAllUser();
+        Collections.sort(users,(u1,u2) -> Integer.compare(u1.getId(),u2.getId()));
         if(users.isEmpty()) {
             throw new UserNotFoundException("No user record available");
         }
@@ -70,5 +72,18 @@ public class UserService {
         else {
             throw new UserNotFoundException("Wrong credentials!");
         }
+    }
+
+    public ResponseEntity<ResponseStructure<User>> updateUserPassword(User user) {
+        Optional<User> optionalUser = userDao.getUserByUserName(user.getUserName());
+        if (optionalUser.isEmpty()) {
+            throw new UserNotFoundException("Wrong user name");
+        }
+        optionalUser.ifPresent(u -> {
+            u.setPassword(user.getPassword());
+            userDao.addUser(u);
+        });
+        ResponseStructure<User> response = new ResponseStructure<>(HttpStatus.OK, "password updated", optionalUser.get());
+        return ResponseEntity.ok(response);
     }
 }
