@@ -12,7 +12,7 @@ export const InputBox = ({label, placeholder, forgetPassword, type}) => {
             <input 
                 type={type} 
                 placeholder={placeholder} 
-                className="w-full px-2 py-1 rounded border-slate-200"
+                className="w-full px-2 py-1 rounded border-gray-500 border"
                 required 
             />
         </div>
