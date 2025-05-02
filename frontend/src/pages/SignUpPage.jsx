@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { BottomWarning } from "../components/BottomWarning";
 import axios from "axios";
 
-export const Signup = () => {
+export const SignUpPage = () => {
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [userName, setUserName] = useState("");
@@ -17,9 +17,9 @@ export const Signup = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="min-h-screen flex justify-center bg-gray-300">
+        <div className="min-h-screen flex justify-center bg-gray-400">
             <div className="flex flex-col justify-center">
-                <div className="max-w-md rounded-lg border px-4 p-2 bg-gray-400">
+                <div className="max-w-md rounded-lg border px-4 p-2 bg-gray-200">
                     <LogHeading label={"Signup"}/>
                     <LogSubHeading label={"Enter your information to create an account"} />
                     <div className="flex flex-row justify-center">
@@ -71,8 +71,8 @@ export const Signup = () => {
                         type={"submit"}
                         onPress=
                         {async () => {
-                            try {
-                                const response = await axios.post("http://localhost:3000/" , {
+                            try { //Add backend route
+                                const response = await axios.post("backendConnection" , {
                                     firstName,
                                     lastName,
                                     userName,
@@ -83,7 +83,7 @@ export const Signup = () => {
                                 console.log("Response Data : ", response.data);
 
                                 if(response.data) {
-                                    navigate("/home");
+                                    navigate("/dashbord");
                                 } else {
                                     console.log("Error in response data");
                                 }
@@ -104,4 +104,3 @@ export const Signup = () => {
     );
 }
 
-//label, onPress, type

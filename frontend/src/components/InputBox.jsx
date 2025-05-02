@@ -1,6 +1,6 @@
 export const InputBox = ({label, placeholder, forgetPassword, type}) => {
     return (
-        <div className="p-3">
+        <div className="p-1">
             <div className="flex items-center justify-between">
                 <div className="font-bold">
                     {label}
@@ -12,7 +12,7 @@ export const InputBox = ({label, placeholder, forgetPassword, type}) => {
             <input 
                 type={type} 
                 placeholder={placeholder} 
-                className="w-full px-2 py-1 rounded border-slate-200"
+                className="w-full px-2 py-1 rounded border border-gray-900"
                 required 
             />
         </div>
