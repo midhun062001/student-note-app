@@ -6,8 +6,8 @@ import { HomePage } from './pages/HomePage';
 import { SignUpPage } from './pages/SignUpPage';
 import { DashboardPage } from './pages/DashboardPage';
 
-function App() {
 
+function App() {
   return (
       <>
         <BrowserRouter>
