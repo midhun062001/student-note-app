@@ -1,6 +1,8 @@
 package com.noob.notesapp.user.controller;
 
 import com.noob.notesapp.user.dto.ResponseStructure;
+import com.noob.notesapp.user.dto.UserNameAndPasswordDto;
+import com.noob.notesapp.user.dto.UserPasswordEmailDto;
 import com.noob.notesapp.user.model.User;
 import com.noob.notesapp.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,10 +31,15 @@ public class UserController {
     public ResponseEntity<ResponseStructure<List<User>>> getAllUser() {
         return userService.getAllUser();
     }
+    
+    @PostMapping("/email")
+    public ResponseEntity<ResponseStructure<User>> getUserByEmailAndPassword(@RequestBody UserPasswordEmailDto dto) {
+    	return userService.getUserByEmailAndPassword(dto.email(), dto.password());
+    }
 
-    @GetMapping("/{userName}/{password}")
-    public ResponseEntity<ResponseStructure<User>> getUserByUserNameAndPassword(@PathVariable String userName, @PathVariable String password) {
-        return userService.getUserByUserNameAndPassword(userName, password);
+    @PostMapping("/userName")
+    public ResponseEntity<ResponseStructure<User>> getUserByUserNameAndPassword(@RequestBody UserNameAndPasswordDto dto) {
+        return userService.getUserByUserNameAndPassword(dto.userName(), dto.password());
     }
 
     @PutMapping("/")

@@ -41,4 +41,8 @@ public class UserDao {
     public void deleteUser(User user) {
         userRepository.delete(user);
     }
+
+	public Optional<User> getUserByEmailAndPassword(String email, String password) {
+		return userRepository.findByEmailAndPassword(email,password);
+	}
 }

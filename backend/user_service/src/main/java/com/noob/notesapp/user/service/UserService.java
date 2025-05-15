@@ -98,4 +98,14 @@ public class UserService {
             throw new UserNotFoundException("no user found with  user name" + userName);
         }
     }
+	public ResponseEntity<ResponseStructure<User>> getUserByEmailAndPassword(String email, String password) {
+		Optional<User> optionalUser = userDao.getUserByEmailAndPassword(email, password);
+		if(optionalUser.isPresent()) {
+			ResponseStructure<User> response = new ResponseStructure<User>(HttpStatus.OK, "User found with email " + email, optionalUser.get());
+			return ResponseEntity.ok(response);
+		}
+		else {
+			throw new UserNotFoundException("No user found with the given credentials!");
+		}
+	}
 }
